@@ -1,0 +1,11 @@
+<sync rows="128">
+	<tracks>
+		<track name="bg:r">
+		</track>
+		<track name="bg:g">
+		</track>
+		<track name="bg:b">
+		</track>
+	</tracks>
+	<bookmarks/>
+</sync>
