@@ -48,8 +48,10 @@ void setup() {
 
   int bpm = 120; // Tune's beats per minute
   int rowsPerBeat = 4; // How many rows one beat consists of in the sync editor (GNURocket or so)
-  moonlander = new Moonlander(this, new TimeController(4));
-  //moonlander = Moonlander.initWithSoundtrack(this, "20190608_graffathon_onescene.mp3", bpm, rowsPerBeat);
+  shader(tunnelShader);
+  resetShader();
+  moonlander = new Moonlander(this, new TimeController(rowsPerBeat));
+  //moonlander = Moonlander.initWithSoundtrack(this, "reklaami.mp3", bpm, rowsPerBeat);
   moonlander.start();
   int fps = (int)FPS;
   frameRate(fps);
@@ -83,7 +85,7 @@ void drawPriceBubble(String price, int x, int y, float zrot, float alpha) {
   rotateZ(radians(-14));
   textFont(font);
   textAlign(CENTER,CENTER);
-  fill(0,0,0);
+  fill(0,0,0,alpha);
   text(price,0,-30);
   popMatrix();
   
