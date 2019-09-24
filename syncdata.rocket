@@ -1,10 +1,53 @@
 <sync rows="128">
 	<tracks>
-		<track name="bg:r">
+		<track name="scene:scene">
+			<key interpolation="0" row="0" value="0"/>
+			<key interpolation="0" row="8" value="1"/>
 		</track>
-		<track name="bg:g">
+		<track name="bg:r"/>
+		<track name="bg:g"/>
+		<track name="bg:b"/>
+		<track name="bg:a"/>
+		<track name="bubble:price">
+			<key interpolation="0" row="0" value="1"/>
 		</track>
-		<track name="bg:b">
+		<track name="bubble:x">
+			<key interpolation="0" row="0" value="-400"/>
+		</track>
+		<track name="bubble:y">
+			<key interpolation="0" row="0" value="-200"/>
+		</track>
+		<track name="bubble:zrot">
+			<key interpolation="0" row="0" value="0"/>
+		</track>
+		<track name="bubble:alpha">
+			<key interpolation="0" row="0" value="0"/>
+			<key interpolation="0" row="8" value="0"/>
+			<key interpolation="0" row="24" value="255"/>
+		</track>
+		<track name="product:x">
+			<key interpolation="0" row="0" value="350"/>
+		</track>
+		<track name="product:y">
+			<key interpolation="0" row="0" value="180"/>
+		</track>
+		<track name="product:zrot">
+			<key interpolation="0" row="0" value="1"/>
+		</track>
+		<track name="product:alpha">
+			<key interpolation="0" row="0" value="0"/>
+			<key interpolation="0" row="24" value="0"/>
+			<key interpolation="0" row="25" value="36"/>
+			<key interpolation="0" row="26" value="72"/>
+			<key interpolation="0" row="27" value="108"/>
+			<key interpolation="0" row="28" value="144"/>
+			<key interpolation="0" row="29" value="170"/>
+			<key interpolation="0" row="30" value="206"/>
+			<key interpolation="0" row="31" value="242"/>
+			<key interpolation="0" row="32" value="255"/>
+		</track>
+		<track name="state:state">
+			<key interpolation="0" row="0" value="0"/>
 		</track>
 	</tracks>
 	<bookmarks/>
