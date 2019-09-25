@@ -1,95 +1,123 @@
 <sync rows="668">
 	<tracks>
 		<track name="scene:scene">
-			<key row="0" interpolation="0" value="1"/>
+			<key interpolation="0" row="0" value="0"/>
+			<key interpolation="0" row="64" value="1"/>
+			<key interpolation="0" row="384" value="2"/>
 		</track>
 		<track name="scene:textx">
-			<key row="0" interpolation="0" value="990"/>
-			<key row="32" interpolation="1" value="990"/>
-			<key row="95" interpolation="0" value="-3650"/>
-			<key row="96" interpolation="1" value="990"/>
-			<key row="143" interpolation="0" value="-3650"/>
-			<key row="144" interpolation="1" value="990"/>
-			<key row="191" interpolation="0" value="-3650"/>
+			<key interpolation="0" row="0" value="990"/>
+			<key interpolation="1" row="64" value="990"/>
+			<key interpolation="0" row="127" value="-3650"/>
+			<key interpolation="1" row="128" value="990"/>
+			<key interpolation="0" row="191" value="-3650"/>
+			<key interpolation="1" row="192" value="990"/>
+			<key interpolation="0" row="255" value="-3650"/>
+			<key interpolation="1" row="256" value="990"/>
+			<key interpolation="0" row="319" value="-3650"/>
+			<key interpolation="1" row="320" value="990"/>
+			<key interpolation="0" row="383" value="-3650"/>
 		</track>
-		<track name="bg:r"/>
-		<track name="bg:g"/>
-		<track name="bg:b"/>
-		<track name="bg:a"/>
+		<track name="bg:r">
+			<key interpolation="0" row="0" value="0"/>
+		</track>
+		<track name="bg:g">
+			<key interpolation="0" row="0" value="100"/>
+		</track>
+		<track name="bg:b">
+			<key interpolation="0" row="0" value="255"/>
+		</track>
+		<track name="bg:a">
+			<key interpolation="0" row="63" value="0"/>
+		</track>
 		<track name="bubble:price">
-			<key row="0" interpolation="0" value="1"/>
-			<key row="96" interpolation="0" value="0"/>
-			<key row="144" interpolation="0" value="2"/>
+			<key interpolation="0" row="0" value="1"/>
+			<key interpolation="0" row="128" value="0"/>
+			<key interpolation="0" row="192" value="2"/>
+			<key interpolation="0" row="256" value="3"/>
+			<key interpolation="0" row="320" value="4"/>
 		</track>
 		<track name="bubble:x">
-			<key row="0" interpolation="0" value="-400"/>
+			<key interpolation="0" row="0" value="-400"/>
 		</track>
 		<track name="bubble:y">
-			<key row="0" interpolation="0" value="-200"/>
+			<key interpolation="0" row="0" value="-200"/>
 		</track>
 		<track name="bubble:zrot">
-			<key row="0" interpolation="0" value="0"/>
+			<key interpolation="0" row="0" value="0"/>
 		</track>
 		<track name="bubble:alpha">
-			<key row="0" interpolation="0" value="0"/>
-			<key row="32" interpolation="0" value="255"/>
+			<key interpolation="0" row="0" value="0"/>
+			<key interpolation="0" row="64" value="255"/>
 		</track>
 		<track name="product:x">
-			<key row="0" interpolation="0" value="350"/>
-			<key row="32" interpolation="0" value="100"/>
-			<key row="144" interpolation="0" value="200"/>
+			<key interpolation="0" row="0" value="350"/>
+			<key interpolation="0" row="64" value="100"/>
+			<key interpolation="0" row="192" value="200"/>
+			<key interpolation="2" row="256" value="200"/>
+			<key interpolation="0" row="264" value="150"/>
 		</track>
 		<track name="product:y">
-			<key row="0" interpolation="0" value="180"/>
-			<key row="32" interpolation="0" value="20"/>
-			<key row="96" interpolation="2" value="20"/>
-			<key row="104" interpolation="0" value="150"/>
-			<key row="144" interpolation="0" value="50"/>
+			<key interpolation="0" row="0" value="180"/>
+			<key interpolation="0" row="64" value="20"/>
+			<key interpolation="2" row="128" value="20"/>
+			<key interpolation="0" row="136" value="150"/>
+			<key interpolation="0" row="192" value="50"/>
+			<key interpolation="2" row="256" value="50"/>
+			<key interpolation="0" row="264" value="300"/>
 		</track>
 		<track name="product:z">
-			<key row="0" interpolation="0" value="180"/>
-			<key row="32" interpolation="0" value="200"/>
+			<key interpolation="0" row="0" value="180"/>
+			<key interpolation="0" row="64" value="200"/>
 		</track>
 		<track name="product:xrot">
-			<key row="0" interpolation="0" value="1"/>
-			<key row="32" interpolation="2" value="180"/>
-			<key row="64" interpolation="2" value="240"/>
-			<key row="96" interpolation="2" value="170"/>
-			<key row="144" interpolation="2" value="90"/>
-			<key row="192" interpolation="0" value="120"/>
+			<key interpolation="0" row="0" value="1"/>
+			<key interpolation="2" row="64" value="180"/>
+			<key interpolation="2" row="96" value="240"/>
+			<key interpolation="2" row="128" value="170"/>
+			<key interpolation="2" row="192" value="90"/>
+			<key interpolation="2" row="256" value="120"/>
+			<key interpolation="0" row="320" value="100"/>
 		</track>
 		<track name="product:yrot">
-			<key row="0" interpolation="0" value="1"/>
-			<key row="32" interpolation="2" value="-60"/>
-			<key row="64" interpolation="2" value="-110"/>
-			<key row="96" interpolation="2" value="-150"/>
-			<key row="144" interpolation="2" value="-330"/>
-			<key row="192" interpolation="0" value="-300"/>
+			<key interpolation="0" row="0" value="1"/>
+			<key interpolation="2" row="64" value="-60"/>
+			<key interpolation="2" row="96" value="-110"/>
+			<key interpolation="2" row="128" value="-150"/>
+			<key interpolation="2" row="192" value="-330"/>
+			<key interpolation="2" row="256" value="-300"/>
+			<key interpolation="0" row="257" value="-350"/>
+			<key interpolation="0" row="320" value="-370"/>
 		</track>
 		<track name="product:zrot">
-			<key row="0" interpolation="0" value="1"/>
-			<key row="32" interpolation="2" value="-70"/>
-			<key row="64" interpolation="2" value="-50"/>
-			<key row="96" interpolation="2" value="-30"/>
-			<key row="144" interpolation="2" value="50"/>
-			<key row="192" interpolation="0" value="-50"/>
+			<key interpolation="0" row="0" value="1"/>
+			<key interpolation="2" row="64" value="-70"/>
+			<key interpolation="2" row="96" value="-50"/>
+			<key interpolation="2" row="128" value="-30"/>
+			<key interpolation="2" row="192" value="50"/>
+			<key interpolation="2" row="256" value="-50"/>
+			<key interpolation="2" row="257" value="-140"/>
+			<key interpolation="0" row="320" value="-200"/>
 		</track>
 		<track name="product:scale">
-			<key row="0" interpolation="0" value="0"/>
-			<key row="32" interpolation="2" value="0"/>
-			<key row="40" interpolation="0" value="80"/>
-			<key row="88" interpolation="2" value="80"/>
-			<key row="96" interpolation="2" value="0"/>
-			<key row="104" interpolation="0" value="1.5"/>
-			<key row="128" interpolation="2" value="1.5"/>
-			<key row="144" interpolation="2" value="0"/>
-			<key row="152" interpolation="0" value="20"/>
-			<key row="184" interpolation="2" value="20"/>
-			<key row="192" interpolation="0" value="0"/>
+			<key interpolation="0" row="0" value="0"/>
+			<key interpolation="2" row="64" value="0"/>
+			<key interpolation="0" row="72" value="80"/>
+			<key interpolation="2" row="120" value="80"/>
+			<key interpolation="2" row="128" value="0"/>
+			<key interpolation="0" row="136" value="1.5"/>
+			<key interpolation="2" row="184" value="1.5"/>
+			<key interpolation="2" row="192" value="0"/>
+			<key interpolation="0" row="200" value="20"/>
+			<key interpolation="2" row="248" value="20"/>
+			<key interpolation="2" row="256" value="0"/>
+			<key interpolation="0" row="264" value="30"/>
+			<key interpolation="2" row="312" value="30"/>
+			<key interpolation="0" row="320" value="0"/>
 		</track>
 		<track name="product:alpha"/>
 		<track name="state:state">
-			<key row="0" interpolation="0" value="0"/>
+			<key interpolation="0" row="0" value="0"/>
 		</track>
 	</tracks>
 	<bookmarks/>

@@ -2,9 +2,9 @@ import moonlander.library.*;
 import ddf.minim.*;
 final float FPS = 60;
 final float SPEED = 120;
-final String[] prices = {"99mk","499mk","5,95mk","24,90mk"};
-final String[] itemTexts = {"ANKKA","MÄTIPILLI DELUXE - MIKSI SÖISIT MÄTISI LUSIKALLA?","SIBS - SUOSIKIT: HERNEKEITTO, VIINA JA JOHANNES","KULMANAVAAJA - VIRALLINEN KULMA ESPORTS FANITUOTE!"};
-final String[] itemObjs = {"ducky.obj","matipilli.obj","10874_Chips_v1_L3.obj","ducky.obj"};
+final String[] prices = {"99mk","499mk","5,95mk","24,90mk","69mk"};
+final String[] itemTexts = {"ANKKA - GLSL TUELLA","MÄTIPILLI DELUXE - MIKSI SÖISIT MÄTISI LUSIKALLA?","SIBS - SUOSIKIT: HERNEKEITTO, VIINA JA JOHANNES","KAMPAVIINA - SAMMUTTAA JANON PAREMMIN","PIKSELIVIILA - EI SOVELLU VEKTORIEN VANUTTAMISEEN"};
+final String[] itemObjs = {"ducky.obj","matipilli.obj","10874_Chips_v1_L3.obj","14042_750_mL_Wine_Bottle_r_v1_L3.obj","viila.obj"};
 final String[] greets = {"SKROLLI","TEKOTUOTANTO","WIDE LOAD","PARAGUAY","BYTERAPERS","ADAPT","CNCD","FAIRLIGHT","ASD","VANHA MEDIAKUNTA","QUADTRIP","DEKADENCE","DAMONES","JUMALAUTA","SCENESAT"};
 
 float now = 0.0;
@@ -21,7 +21,9 @@ Moonlander moonlander;
 PFont font;
 PImage bubble;
 PImage overlay1;
+PImage nekola;
 PShape[] itemShapes = new PShape[itemObjs.length];
+PGraphics bg;
 
 PShader bgShader;
 
@@ -39,10 +41,12 @@ void setup() {
   font = createFont("VictorMono-Regular.ttf",100);
   bubble = loadImage("kupla.png");
   overlay1 = loadImage("overlay1.png");
+  nekola = loadImage("warejako.png");
   for (int i = 0; i < itemShapes.length; i++)
   {
     itemShapes[i] = loadShape(itemObjs[i]);
   }
+  bg = createGraphics((int)CANVAS_WIDTH,(int)CANVAS_HEIGHT);
   bgShader = loadShader("voro.glsl");
   bgShader.set("iResolution",(float)CANVAS_WIDTH, (float)CANVAS_HEIGHT);
   noCursor();
@@ -75,6 +79,14 @@ void drawText()
     x += textWidth(msg.charAt(i));
   }
   popMatrix();
+}
+
+void drawSolidColorBGWithAlpha()
+{
+  bg.beginDraw();
+  bg.background((float)moonlander.getValue("bg:r"),(float)moonlander.getValue("bg:g"),(float)moonlander.getValue("bg:b"),(float)moonlander.getValue("bg:a"));
+  bg.endDraw();
+  image(bg,-bg.width/2,-bg.height/2);
 }
 
 void drawPriceBubble(String price, int x, int y, float zrot, float alpha) {
@@ -116,6 +128,10 @@ void draw3dProduct(int i) {
   popMatrix();
 }*/
 
+void drawNekola() {
+  image(nekola,-nekola.width/2, -nekola.height/2);
+}
+
 void drawOverlay() {
   image(overlay1,-CANVAS_WIDTH/2, -CANVAS_HEIGHT/2);
 }
@@ -125,12 +141,15 @@ void draw() {
   switch((int)moonlander.getValue("scene:scene"))
   {
     case 0:
+      hint(DISABLE_DEPTH_TEST);
       shader(bgShader);
-      rect(-CANVAS_WIDTH, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+      rect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
       resetShader();
-      background((int)(moonlander.getValue("bg:r") * 255),(int)(moonlander.getValue("bg:g") * 255),(int)(moonlander.getValue("bg:b") * 255),(int)(moonlander.getValue("bg:a") * 255));
-      //drawProduct((int)moonlander.getValue("bubble:price"),(int)moonlander.getValue("product:x"),(int)moonlander.getValue("product:y"),(float)moonlander.getValue("product:zrot"),(float)moonlander.getValue("product:alpha"));
-      drawPriceBubble(prices[(int)moonlander.getValue("bubble:price")],(int)moonlander.getValue("bubble:x"),(int)moonlander.getValue("bubble:y"),(float)moonlander.getValue("bubble:zrot"),(float)moonlander.getValue("bubble:alpha"));
+      bgShader.set("iTime",(float)moonlander.getCurrentTime());
+      translate(width/2, height/2, 0);
+      scale(width/CANVAS_WIDTH,height/CANVAS_HEIGHT,width/CANVAS_WIDTH);
+      drawSolidColorBGWithAlpha();
+      drawNekola();
     break;
     case 1:
       lights();
@@ -147,12 +166,11 @@ void draw() {
       noLights();
        
       hint(DISABLE_DEPTH_TEST); 
-      //drawProduct((int)moonlander.getValue("bubble:price"),(int)moonlander.getValue("product:x"),(int)moonlander.getValue("product:y"),(float)moonlander.getValue("product:zrot"),(float)moonlander.getValue("product:alpha"));
       drawPriceBubble(prices[(int)moonlander.getValue("bubble:price")],(int)moonlander.getValue("bubble:x"),(int)moonlander.getValue("bubble:y"),(float)moonlander.getValue("bubble:zrot"),(float)moonlander.getValue("bubble:alpha"));
       drawText();
     break;
     case 2:
-      background((int)(moonlander.getValue("bg:r") * 255),(int)(moonlander.getValue("bg:g") * 255),(int)(moonlander.getValue("bg:b") * 255),(int)(moonlander.getValue("bg:a") * 255));
+      background(0,0,0);
       translate(width/2, height/2, 0);
       scale(width/CANVAS_WIDTH,height/CANVAS_HEIGHT,width/CANVAS_WIDTH);
       noLights();
