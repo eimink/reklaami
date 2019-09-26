@@ -87,7 +87,7 @@ void drawSolidColorBGWithAlpha()
   image(bg,-bg.width/2,-bg.height/2);
 }
 
-void drawPriceBubble(String price, int x, int y, float zrot, float alpha) {
+void drawBubble(String price, int x, int y, float zrot, float alpha) {
   pushMatrix();
   translate(x,y);
   rotateZ(radians(zrot));
@@ -155,7 +155,7 @@ void draw() {
       noLights();
        
       hint(DISABLE_DEPTH_TEST); 
-      drawPriceBubble(prices[(int)moonlander.getValue("bubble:price")],(int)moonlander.getValue("bubble:x"),(int)moonlander.getValue("bubble:y"),(float)moonlander.getValue("bubble:zrot"),(float)moonlander.getValue("bubble:alpha"));
+      drawBubble(prices[(int)moonlander.getValue("bubble:price")],(int)moonlander.getValue("bubble:x"),(int)moonlander.getValue("bubble:y"),(float)moonlander.getValue("bubble:zrot"),(float)moonlander.getValue("bubble:alpha"));
       drawText();
     break;
     case 2:
