@@ -48,7 +48,9 @@ vec3 voro(in vec2 x)
 
 void main(void)
 {
-	vec2 p = gl_FragCoord.xy/iResolution.xx;
+	vec2 p = (gl_FragCoord.xy-.5*iResolution.xy)/iResolution.y;
+	vec2 st = vec2(atan(p.x,p.y),length(p));
+	p = vec2(st.x/6.2831+.5+(.1*iTime),st.y);
 	vec3 c = voro(9*p);
 	vec3 col = c.x*2.*(sin(c.x)+.9)*vec3(p.y,c.x,1.);
 	gl_FragColor = vec4(col,1.0);

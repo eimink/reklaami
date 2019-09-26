@@ -2,7 +2,7 @@ import moonlander.library.*;
 import ddf.minim.*;
 final float FPS = 60;
 final float SPEED = 120;
-final String[] prices = {"99mk","499mk","5,95mk","24,90mk","69mk"};
+final String[] prices = {"99mk","499mk","15mk","39mk","69mk"};
 final String[] itemTexts = {"ANKKA - GLSL TUELLA","MÄTIPILLI DELUXE - MIKSI SÖISIT MÄTISI LUSIKALLA?","SIBS - SUOSIKIT: HERNEKEITTO, VIINA JA JOHANNES","KAMPAVIINA - SAMMUTTAA JANON PAREMMIN","PIKSELIVIILA - EI SOVELLU VEKTORIEN VANUTTAMISEEN"};
 final String[] itemObjs = {"ducky.obj","matipilli.obj","10874_Chips_v1_L3.obj","14042_750_mL_Wine_Bottle_r_v1_L3.obj","viila.obj"};
 final String[] greets = {"SKROLLI","TEKOTUOTANTO","WIDE LOAD","PARAGUAY","BYTERAPERS","ADAPT","CNCD","FAIRLIGHT","ASD","VANHA MEDIAKUNTA","QUADTRIP","DEKADENCE","DAMONES","JUMALAUTA","SCENESAT"};
@@ -68,8 +68,6 @@ String msg = "";
 void drawText()
 {
   pushMatrix();
-  //scale(1.5+sin(now));
-  //textAlign(LEFT,LEFT);
   fill(255,255,255);
   textFont(font);
   msg = itemTexts[(int)moonlander.getValue("bubble:price")];
@@ -118,15 +116,6 @@ void draw3dProduct(int i) {
   shape(itemShapes[i]);
   popMatrix();
 }
-
-/*void drawProduct(int i, int x, int y, float zrot, float alpha) {
-  pushMatrix();
-  translate(x,y);
-  rotateZ(radians(zrot));
-  tint(255, alpha);
-  image(items[i], -items[i].width/2, -items[i].height/2);
-  popMatrix();
-}*/
 
 void drawNekola() {
   image(nekola,-nekola.width/2, -nekola.height/2);
