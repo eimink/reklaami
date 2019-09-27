@@ -3,9 +3,9 @@ import ddf.minim.*;
 final float FPS = 60;
 final float SPEED = 120;
 final String[] prices = {"99mk","499mk","15mk","39mk","69mk"};
-final String[] itemTexts = {"ANKKA - GLSL TUELLA","MÄTIPILLI DELUXE - MIKSI SÖISIT MÄTISI LUSIKALLA?","SIBS - SUOSIKIT: HERNEKEITTO, VIINA JA JOHANNES","KAMPAVIINA - SAMMUTTAA JANON PAREMMIN","PIKSELIVIILA - EI SOVELLU VEKTORIEN VANUTTAMISEEN"};
+final String[] itemTexts = {"DUCK - WITH GLSL SUPPORT","MÄTIPILLI DELUXE - WHY WOULD YOU EAT MÄTI WITH SPOON?","SIBS - FAVOURITES: PEA SOUP, BOOZE AND JOHANNES","KAMPAVIINA - BETTER WAY TO QUENCH YOUR THIRST","PIXELFILE - NOT FOR FULLING VECTORS "};
 final String[] itemObjs = {"ducky.obj","matipilli.obj","10874_Chips_v1_L3.obj","14042_750_mL_Wine_Bottle_r_v1_L3.obj","viila.obj"};
-final String[] greets = {"SKROLLI","TEKOTUOTANTO","WIDE LOAD","PARAGUAY","BYTERAPERS","ADAPT","CNCD","FAIRLIGHT","ASD","VANHA MEDIAKUNTA","QUADTRIP","DEKADENCE","DAMONES","JUMALAUTA","SCENESAT"};
+final String[] greets = {"REKLAAMI", "BY", "EIMINK", "UTILIZING", "SOME", "3RD PARTY", "ASSETS", "GREETS TO","SKROLLI","TEKOTUOTANTO","WIDE LOAD","PARAGUAY","BYTERAPERS","ADAPT","CNCD","FAIRLIGHT","ASD","VANHA\nMEDIAKUNTA","QUADTRIP","DEKADENCE","DAMONES","JUMALAUTA","SCENESAT","AND YOU!"};
 
 float now = 0.0;
 float CANVAS_WIDTH = 1920;
@@ -55,8 +55,8 @@ void setup() {
   int rowsPerBeat = 4; // How many rows one beat consists of in the sync editor (GNURocket or so)
   shader(bgShader);
   resetShader();
-  moonlander = new Moonlander(this, new TimeController(8));
-  //moonlander = Moonlander.initWithSoundtrack(this, "reklaami.mp3", bpm, rowsPerBeat);
+  //moonlander = new Moonlander(this, new TimeController(8));
+  moonlander = Moonlander.initWithSoundtrack(this, "reklaami.mp3", bpm, rowsPerBeat);
   moonlander.start();
   int fps = (int)FPS;
   frameRate(fps);
@@ -99,6 +99,22 @@ void drawBubble(String price, int x, int y, float zrot, float alpha) {
   textAlign(CENTER,CENTER);
   fill(0,0,0,alpha);
   text(price,0,-30);
+  popMatrix();
+  
+}
+
+void drawGreet(String text, int x, int y, float zrot, float alpha) {
+  pushMatrix();
+  translate(x,y);
+  rotateZ(radians(zrot));
+  tint(255,alpha);
+  image(bubble, -bubble.width/2, -bubble.height/2);
+  scale(1);
+  rotateZ(radians(-14));
+  textFont(font);
+  textAlign(CENTER,CENTER);
+  fill(0,0,0,alpha);
+  text(text,0,-30);
   popMatrix();
   
 }
@@ -160,12 +176,18 @@ void draw() {
     break;
     case 2:
       background(0,0,0);
+      shader(bgShader);
+      rect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+      resetShader();
+      bgShader.set("iTime",(float)moonlander.getCurrentTime());
       translate(width/2, height/2, 0);
       scale(width/CANVAS_WIDTH,height/CANVAS_HEIGHT,width/CANVAS_WIDTH);
       noLights();
       hint(DISABLE_DEPTH_TEST); 
-
-      drawText();
+      float a = (float)moonlander.getCurrentTime();
+      for(int i=greets.length; i>0;i--){
+        drawGreet(greets[(int)moonlander.getValue("greets:index")],(int)(200.*cos(a+i*25)),(int)(200.*sin(a+i*25)),0.0,200);
+      }
     break;
   }
 
